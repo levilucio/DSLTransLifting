@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<src_recreated:rootElement xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:src_recreated="http://src_recreated" xsi:schemaLocation="http://src_recreated src_recreated.ecore">
+  <ecu Name="my_ecu" VirtualDevice="//@VirtualDevice.0 //@VirtualDevice.1"/>
+  <VirtualDevice Name="my_vd1" Distributable="//@Distributable.0 //@Distributable.2"/>
+  <VirtualDevice Name="my_vd2" Distributable="//@Distributable.1"/>
+  <Distributable Name="my_dist1"/>
+  <Distributable Name="my_dist2"/>
+  <Distributable Name="my_dist3"/>
+</src_recreated:rootElement>

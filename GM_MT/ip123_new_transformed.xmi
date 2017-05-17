@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII" standalone="no"?>
+<dst_recreated:rootElement xmlns:dst_recreated="http://dst_recreated" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" shortName="rootElem" xmi:version="2.0" xsi:schemaLocation="http://dst_recreated dst_recreated.ecore">
+  <System shortName="BodyControl">
+    <softwareComposition shortName="BodyControl" softwareComposition="//@CompositionType.0"/>
+    <mapping shortName="BodyControl">
+      <swMapping ecuInstance="//@EcuInstance.0" shortName="HumanMachineInterface">
+        <component componentPrototype="//@CompositionType.0/@component.0" shortName="Display1"/>
+      </swMapping>
+    </mapping>
+  </System>
+  <System shortName="BodyControl">
+    <softwareComposition shortName="BodyControl" softwareComposition="//@CompositionType.1"/>
+    <mapping shortName="BodyControl">
+      <swMapping ecuInstance="//@EcuInstance.1" shortName="HumanMachineInterface">
+        <component componentPrototype="//@CompositionType.1/@component.0" shortName="D0"/>
+      </swMapping>
+    </mapping>
+  </System>
+  <EcuInstance shortName="BodyControl"/>
+  <EcuInstance shortName="BodyControl"/>
+  <CompositionType shortName="BodyControl">
+    <component shortName="Display1" type="//@CompositionType.0"/>
+  </CompositionType>
+  <CompositionType shortName="BodyControl">
+    <component shortName="D0" type="//@CompositionType.1"/>
+  </CompositionType>
+</dst_recreated:rootElement>

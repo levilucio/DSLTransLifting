@@ -1,0 +1,50 @@
+Environment configuration to run lifted DSLTrans programmatically in Linux Ubuntu:
+
+Eclipse: Helios Service Release 2
+Java: Java-SE 1.7
+Prolog: SWI Prolog 5.10.1, but probably would work with later versions
+Z3: 4.3.2 (latest version at the time of implementation)
+
+Installation steps:
+
+1. Bridge between Java and Prolog:
+
+The only valid information I found on how to do this is here:
+
+https://www.youtube.com/watch?v=cu8HxEpmrQU
+https://code.google.com/p/javanaproche/wiki/HowToJPL
+
+Get the source: http://www.swi-prolog.org/download/stable/src/pl-5.10.1.tar.gz
+
+Extract the tarball and edit build.templ as follows: Set PREFIX:
+
+    PREFIX=/usr
+    SUDO="sudo" 
+
+Select Packages:
+
+    export DISABLE_PKGS="ssl odbc xpce zlib" 
+
+Additional packages may be disabled (as long as JPL stays enabled, of course) or any of the 4 above may be enabled. However xpce and zlib are known to cause problems in some environments and are not needed for naproche anyway. And create a shared library. Add:
+
+    EXTRACFG+=" --enable-shared" 
+
+Make sure every one of the options above is uncommented.
+
+Then run build.templ. (Despite setting SUDO in most cases the script needs to be called as root)
+
+Afterwards there should be a "jpl.jar" in /usr/lib/swipl-5.10.1/lib and libswipl.so in /usr/lib/swipl-5.10.1/lib/i686-linux
+
+For compilation of the java-sources the jpl.jar needs to be in the Classpath and java needs to be called as "java -Djava.library.path=.:/usr/lib/swipl-5.10.1/lib/i686-linux" (path to libswpl.so) This is most easily done by using the provided "env.sh" script, called by the various run.sh scripts. When using an IDE (like Eclipse) manual work is required to set the variables (see below). 
+
+Prolog has to be recompiled to build the jpl library. When the .jar is added to the LD_LIBRARY_PATH the native library location in eclipse for the jar file has to be set to the place where the c ".so" libraries are
+
+
+2. Bridge between Java and S3
+
+Download a z3 package from here: http://z3.codeplex.com/releases, following the next steps:
+On the right there's a section called "other downloads", select "planned" and choose your the architecture
+
+Copy the files bin/libz3.so and bin/libz3java.so to where your system puts shared libraries, usually /usr/lib. This allows z3 to be called through libraries, if you want to run it standalone for testing you can run the executable bin/z3 with an smtlib_input_file or easier online http://rise4fun.com/z3
+
+Copy the file /bin/com.microsoft.z3.jar to your Eclipse project where you want to develop. The native library location in eclipse for the jar file has to be set to the place where the c ".so" libraries are.

@@ -1,0 +1,11 @@
+- How are the presence conditions added to the domain metamodel? From I understood presence conditions are strings, so I imagine a top class with a string exists and everything else inherits from it, or something along those lines. It would be good to see how you do it (I assume your metamodels are ecore...)
+
+Presence conditions are added in the Metamodel as a top class with a string. Relations are modelled as relation classes.
+
+- How do you check for the presence conditions in the domain model? I assume you use the normal matcher in the rule and then treat the presence conditions you detect on elements of the rule by the engine, calling the Z3 solver. Also, the rewriting of the presence conditions can also be done somehow associated with the rule rewriter, I assume.
+
+Everything inherits from the top class and in case no presence conditions exist the attribute is initialized to true. Update in the elements is done later and not done by the rule.
+
+- I guess I can check the algorithm for transforming presence conditions in your ICSE paper, but then there are the specific aspects of lifting DSLTrans (e.g. the ExistsMatchClass) that need to specifically treated for this paper.
+
+- Finally, I will need the example product line from Gehan to start experimenting once the lifting is implemented (which I expect can be coded relatively fast once the above points are understood) and the metamodel for the GM case study is enhanced with the presence conditions. From what I understood from the last meeting the product line is already well advanced, so that could be used even if Ramesh still needs to validate it.

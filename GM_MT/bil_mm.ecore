@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bil_mm"
+    nsURI="http://www.mdworkbench.com/bil_MM" nsPrefix="bil_MM">
+  <eClassifiers xsi:type="ecore:EDataType" name="EString" instanceClassName="java.lang.String">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EStringToStringMapEntry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EObject"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EAnnotation" eSuperTypes="#//EModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="details" upperBound="-1"
+        eType="#//EStringToStringMapEntry" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eModelElement" eType="#//EModelElement"
+        eOpposite="#//EModelElement/eAnnotations"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//EObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EModelElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAnnotations" upperBound="-1"
+        eType="#//EAnnotation" containment="true" eOpposite="#//EAnnotation/eModelElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultComponent" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EBoolean" instanceClassName="boolean">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Directory" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Project" eSuperTypes="#//Package">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Environment" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" ordered="false"
+        upperBound="-1" eType="#//Domain" containment="true" eOpposite="#//Domain/Project"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EInt" instanceClassName="int">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#int"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Te_Subsystem">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="ACAM_CTD" literal="ACAM_CTD"/>
+    <eLiterals name="ACAM_EC" value="1" literal="ACAM_EC"/>
+    <eLiterals name="ACAM_PEP" value="2" literal="ACAM_PEP"/>
+    <eLiterals name="ACAM_PW" value="3" literal="ACAM_PW"/>
+    <eLiterals name="CLIM_HCV" value="4" literal="CLIM_HCV"/>
+    <eLiterals name="CLIM_WIP" value="5" literal="CLIM_WIP"/>
+    <eLiterals name="EM_EPM" value="6" literal="EM_EPM"/>
+    <eLiterals name="HMI_CHM" value="7" literal="HMI_CHM"/>
+    <eLiterals name="HMI_HRN" value="8" literal="HMI_HRN"/>
+    <eLiterals name="HMI_OCD" value="9" literal="HMI_OCD"/>
+    <eLiterals name="HMI_PRZ" value="10" literal="HMI_PRZ"/>
+    <eLiterals name="INFO_INFO" value="11" literal="INFO_INFO"/>
+    <eLiterals name="LGT_ELS" value="12" literal="LGT_ELS"/>
+    <eLiterals name="LGT_ILS" value="13" literal="LGT_ILS"/>
+    <eLiterals name="OCCP_POS" value="14" literal="OCCP_POS"/>
+    <eLiterals name="OCCS_OPD" value="15" literal="OCCS_OPD"/>
+    <eLiterals name="PPEI_PTI" value="16" literal="PPEI_PTI"/>
+    <eLiterals name="SEC_RFA" value="17" literal="SEC_RFA"/>
+    <eLiterals name="SEC_VTD" value="18" literal="SEC_VTD"/>
+    <eLiterals name="VM_BKC" value="19" literal="VM_BKC"/>
+    <eLiterals name="VM_TPM" value="20" literal="VM_TPM"/>
+    <eLiterals name="VS_RVS" value="21" literal="VS_RVS"/>
+    <eLiterals name="VS_VSM" value="22" literal="VS_VSM"/>
+    <eLiterals name="INF_CORE" value="23" literal="INF_CORE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Te_CalClassification">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="NotDetermined" literal="NotDetermined"/>
+    <eLiterals name="ProgramSpecificOnVehicleDeveloped" value="1" literal="ProgramSpecificOnVehicleDeveloped"/>
+    <eLiterals name="ProgramSpecificOffVehicleDeveloped" value="2" literal="ProgramSpecificOffVehicleDeveloped"/>
+    <eLiterals name="GlobalCommonDeveloped" value="3" literal="GlobalCommonDeveloped"/>
+    <eLiterals name="GlobalCommonFunctionality" value="4" literal="GlobalCommonFunctionality"/>
+    <eLiterals name="ProgramSpecificFunctionality" value="5" literal="ProgramSpecificFunctionality"/>
+    <eLiterals name="DeploymentCommonFunctionality" value="6" literal="DeploymentCommonFunctionality"/>
+    <eLiterals name="TargetHardwareSpecific" value="7" literal="TargetHardwareSpecific"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//Signal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewDataConsumed" eSuperTypes="#//Event">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RelatedSignal" ordered="false"
+        lowerBound="1" eType="#//Signal" eOpposite="#//Signal/NewDataConsumedEvent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewDataAvailable" eSuperTypes="#//Event">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RelatedSignal" ordered="false"
+        lowerBound="1" eType="#//Signal" eOpposite="#//Signal/NewDataAvailableEvent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Signal" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SimulinkName" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Namespace" ordered="false"
+        lowerBound="1" eType="#//Namespace" eOpposite="#//Namespace/Signals"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NewDataConsumedEvent" ordered="false"
+        lowerBound="1" eType="#//NewDataConsumed" eOpposite="#//NewDataConsumed/RelatedSignal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NewDataAvailableEvent"
+        ordered="false" lowerBound="1" eType="#//NewDataAvailable" eOpposite="#//NewDataAvailable/RelatedSignal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Te_SizeUnits">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="Bits" literal="Bits"/>
+    <eLiterals name="Bytes" value="1" literal="Bytes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Te_Classification">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="SNM" literal="SNM"/>
+    <eLiterals name="UNM" value="1" literal="UNM"/>
+    <eLiterals name="ASC" value="2" literal="ASC"/>
+    <eLiterals name="ENM" value="3" literal="ENM"/>
+    <eLiterals name="BLN" value="4" literal="BLN"/>
+    <eLiterals name="PKT" value="5" literal="PKT"/>
+    <eLiterals name="SVC" value="6" literal="SVC"/>
+    <eLiterals name="BCD" value="7" literal="BCD"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeDefinition" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Size" ordered="false" lowerBound="1"
+        eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SizeUnits" ordered="false"
+        lowerBound="1" eType="#//Te_SizeUnits"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Units" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Classification" ordered="false"
+        lowerBound="1" eType="#//Te_Classification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValue" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValue" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Radix" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Resolution" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SimulationType" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PowertrainType" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TypeAbbv" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Namespace" ordered="false"
+        lowerBound="1" eType="#//Namespace" eOpposite="#//Namespace/TypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Namespace" eSuperTypes="#//Package">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An abstract container designed to group related and unique artifacts."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Abbreviation" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NameUpper" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NameLower" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AbbreviationLower" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Calibration" ordered="false"
+        upperBound="-1" eType="#//Calibration" containment="true" eOpposite="#//Calibration/Namespace"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Signals" ordered="false"
+        upperBound="-1" eType="#//Signal" containment="true" eOpposite="#//Signal/Namespace"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TypeDefinition" ordered="false"
+        upperBound="-1" eType="#//TypeDefinition" containment="true" eOpposite="#//TypeDefinition/Namespace"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Calibration" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Allocation" ordered="false"
+        lowerBound="1" eType="#//Te_Subsystem"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CalAdditionalInstruction"
+        ordered="false" lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CalClassification" ordered="false"
+        lowerBound="1" eType="#//Te_CalClassification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CalOverridenWhen" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CalProcessReference" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CalsRelated" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InitialValues" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EF_CalDependencyExecFrame"
+        ordered="false" upperBound="-1" eType="#//ExecFrame" eOpposite="#//ExecFrame/EF_CalDependency"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Namespace" ordered="false"
+        lowerBound="1" eType="#//Namespace" eOpposite="#//Namespace/Calibration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TypeDefinition" ordered="false"
+        lowerBound="1" eType="#//TypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Visibility">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="PUBLIC" literal="PUBLIC"/>
+    <eLiterals name="PRIVATE" value="1" literal="PRIVATE"/>
+    <eLiterals name="PROTECTED" value="2" literal="PROTECTED"/>
+    <eLiterals name="UNKNOWN" value="3" literal="UNKNOWN"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Multiplicity" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" ordered="false"
+        lowerBound="1" eType="#//Visibility"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TypeDefinition" ordered="false"
+        lowerBound="1" eType="#//TypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueSpecification" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Type" ordered="false" lowerBound="1"
+        eType="#//TypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Te_AxisLabel">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="x_axis" literal="x_axis"/>
+    <eLiterals name="y_axis" value="1" literal="y_axis"/>
+    <eLiterals name="z_axis" value="2" literal="z_axis"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalibrationAxisDefinition" eSuperTypes="#//Calibration">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalibrationAxis" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AxisLabel" ordered="false"
+        lowerBound="1" eType="#//Te_AxisLabel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CalibrationDefinition"
+        ordered="false" lowerBound="1" eType="#//CalibrationDefinition" eOpposite="#//CalibrationDefinition/CalibrationAxis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CalibrationAxisDefinition"
+        ordered="false" lowerBound="1" eType="#//CalibrationAxisDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalibrationDefinition" eSuperTypes="#//Calibration">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ArrayDimensions" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InitialValue" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//ValueSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EnableCalExecFrame" ordered="false"
+        upperBound="-1" eType="#//ExecFrame" eOpposite="#//ExecFrame/EnableCal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CalibrationAxis" ordered="false"
+        upperBound="3" eType="#//CalibrationAxis" containment="true" eOpposite="#//CalibrationAxis/CalibrationDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecFrame" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;code>Execution frames&lt;/code> are responsible for containing and scheduling &lt;code>algorithm blocks&lt;/code>, or the Frame architecture&#x2019;s behavior encapsulating entity and contains scheduling information. Additionally, &lt;code>execution frames&lt;/code> are responsible for data management, &lt;code>signal&lt;/code> passing, or &#x201c;framing&#x201d; the &lt;code>signals&lt;/code> for its contained &lt;code>algorithm blocks&lt;/code> and those from other &lt;code>execution frames&lt;/code>."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PeriodMax" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PeriodMin" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PeriodNominal" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CalibrationEnableValue"
+        ordered="false" lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EF_CalDependency" ordered="false"
+        upperBound="-1" eType="#//Calibration" eOpposite="#//Calibration/EF_CalDependencyExecFrame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Attributes" ordered="false"
+        upperBound="-1" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Subsystem" ordered="false"
+        lowerBound="1" eType="#//Subsystem" eOpposite="#//Subsystem/ExecFrame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Required" ordered="false"
+        upperBound="-1" eType="#//Signal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EnableCal" ordered="false"
+        lowerBound="1" eType="#//CalibrationDefinition" eOpposite="#//CalibrationDefinition/EnableCalExecFrame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Provided" ordered="false"
+        upperBound="-1" eType="#//Signal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlgoContainer" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Block" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//Block" containment="true" eOpposite="#//Block/AlgoContainer"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AlgoContainer" ordered="false"
+        lowerBound="1" eType="#//AlgoContainer" eOpposite="#//AlgoContainer/Block"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Required" ordered="false"
+        upperBound="-1" eType="#//Signal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Provided" ordered="false"
+        upperBound="-1" eType="#//Signal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlgorithmBlock" eSuperTypes="#//Block">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Subsystem" ordered="false"
+        lowerBound="1" eType="#//Subsystem" eOpposite="#//Subsystem/AlgorithmBlock"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Latency_Type">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="L_10ms" literal="L_10ms"/>
+    <eLiterals name="L_20ms" value="1" literal="L_20ms"/>
+    <eLiterals name="L_50ms" value="2" literal="L_50ms"/>
+    <eLiterals name="L_100ms" value="3" literal="L_100ms"/>
+    <eLiterals name="L_250ms" value="4" literal="L_250ms"/>
+    <eLiterals name="L_Undefined" value="5" literal="L_Undefined"/>
+    <eLiterals name="L_1000ms" value="6" literal="L_1000ms"/>
+    <eLiterals name="L_25ms" value="7" literal="L_25ms"/>
+    <eLiterals name="L_30ms" value="8" literal="L_30ms"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Distributable" eSuperTypes="#//Component">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;code>Distributables&lt;/code> are the minimal &lt;code>distributable&lt;/code> elements within the product line that can be selected to be deployed to an &lt;code>ECU&lt;/code> (electronic control unit).  These elements are an encapsulation of behavioral entities and are designed to be the reusable assets within the product line."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxLatency" ordered="false"
+        lowerBound="1" eType="#//Latency_Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ExecFrame" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//ExecFrame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Subsystem" ordered="false"
+        lowerBound="1" eType="#//Subsystem" eOpposite="#//Subsystem/Distributable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subsystem" eSuperTypes="#//Namespace">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="&lt;code>Subsystems&lt;/code> are the smallest namespacing concept within the Frame architecture. Among other things, &lt;code>subsystems&lt;/code> are responsible for containing algorithm behavioral information.  &lt;code>Subsystem&lt;/code> level elements are accessable by any &lt;code>subsystem&lt;/code> within the same domain.  &lt;code>Subsystem&lt;/code> elements should not conflict with other &lt;code>subsystems&lt;/code> within the same &lt;code>domain&lt;/code> or any &lt;code>domain&lt;/code> element."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Domain" ordered="false"
+        lowerBound="1" eType="#//Domain" eOpposite="#//Domain/Subsystem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ExecFrame" ordered="false"
+        upperBound="-1" eType="#//ExecFrame" containment="true" eOpposite="#//ExecFrame/Subsystem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AlgorithmBlock" ordered="false"
+        upperBound="-1" eType="#//AlgorithmBlock" containment="true" eOpposite="#//AlgorithmBlock/Subsystem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Distributable" ordered="false"
+        upperBound="-1" eType="#//Distributable" containment="true" eOpposite="#//Distributable/Subsystem"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Domain" eSuperTypes="#//Namespace">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A &lt;code>domain&lt;/code> is the highest level namespacing concept intended to group related functionality, or behavior, that have a similar view of the system as a whole.  &lt;code>Domain&lt;/code> level elements are accessable by the entire system and should not conflict with any other element."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Toolbox" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Project" ordered="false"
+        lowerBound="1" eType="#//Project" eOpposite="#//Project/Domain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Subsystem" ordered="false"
+        upperBound="-1" eType="#//Subsystem" containment="true" eOpposite="#//Subsystem/Domain"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VirtualDevice" eSuperTypes="#//Component">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Classification" ordered="false"
+        lowerBound="1" eType="#//Te_Classification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LongName" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Mask" ordered="false" lowerBound="1"
+        eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ShortName" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Size" ordered="false" lowerBound="1"
+        eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SizeUnits" ordered="false"
+        lowerBound="1" eType="#//Te_SizeUnits"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Architecture" ordered="false"
+        lowerBound="1" eType="#//Architecture" eOpposite="#//Architecture/VirtualDevice"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Distributable" ordered="false"
+        upperBound="-1" eType="#//Distributable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Controller" eSuperTypes="#//Subsystem">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ECU" ordered="false" lowerBound="1"
+        eType="#//ECU" eOpposite="#//ECU/Controller"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalibrationSet" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ECU" ordered="false" lowerBound="1"
+        eType="#//ECU" eOpposite="#//ECU/CalibrationSets"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Calibrations" ordered="false"
+        upperBound="-1" eType="#//Calibration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EFloat" instanceClassName="float">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#float"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ordered" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExecutionOrder" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScheduleOrder" eSuperTypes="#//Ordered">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ExecFrame" ordered="false"
+        lowerBound="1" eType="#//ExecFrame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Schedule" ordered="false"
+        lowerBound="1" eType="#//Schedule" eOpposite="#//Schedule/ScheduleOrder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Schedule" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Rate" ordered="false" lowerBound="1"
+        eType="#//Rate" eOpposite="#//Rate/Schedule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ScheduleOrder" ordered="false"
+        upperBound="-1" eType="#//ScheduleOrder" containment="true" eOpposite="#//ScheduleOrder/Schedule"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rate" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PeriodMs" ordered="false"
+        lowerBound="1" eType="#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ECU" ordered="false" lowerBound="1"
+        eType="#//ECU" eOpposite="#//ECU/Rate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Schedule" ordered="false"
+        upperBound="-1" eType="#//Schedule" containment="true" eOpposite="#//Schedule/Rate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ECU" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Gateway" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ATU_Binding" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NetworkView" ordered="false"
+        upperBound="-1" eType="#//NetworkView" eOpposite="#//NetworkView/ECU"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VirtualDevice" ordered="false"
+        upperBound="-1" eType="#//VirtualDevice"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Architecture" ordered="false"
+        lowerBound="1" eType="#//Architecture" eOpposite="#//Architecture/ECU"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Controller" ordered="false"
+        lowerBound="1" eType="#//Controller" eOpposite="#//Controller/ECU"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CalibrationSets" ordered="false"
+        upperBound="-1" eType="#//CalibrationSet" containment="true" eOpposite="#//CalibrationSet/ECU"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Rate" ordered="false" upperBound="-1"
+        eType="#//Rate" containment="true" eOpposite="#//Rate/ECU"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkView" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Abbreviation" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Required" ordered="false"
+        upperBound="-1" eType="#//Signal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ECU" ordered="false" lowerBound="1"
+        eType="#//ECU" eOpposite="#//ECU/NetworkView"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Provided" ordered="false"
+        upperBound="-1" eType="#//Signal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Network" ordered="false"
+        lowerBound="1" eType="#//Network" eOpposite="#//Network/NetworkView"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Architecture" ordered="false"
+        lowerBound="1" eType="#//Architecture" eOpposite="#//Architecture/Network"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NetworkView" ordered="false"
+        upperBound="-1" eType="#//NetworkView" eOpposite="#//NetworkView/Network"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Architecture" eSuperTypes="#//Domain">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VirtualDevice" ordered="false"
+        upperBound="-1" eType="#//VirtualDevice" containment="true" eOpposite="#//VirtualDevice/Architecture"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Network" ordered="false"
+        upperBound="-1" eType="#//Network" containment="true" eOpposite="#//Network/Architecture"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ECU" ordered="false" upperBound="-1"
+        eType="#//ECU" containment="true" eOpposite="#//ECU/Architecture"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Profile" eSuperTypes="#//Namespace">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Te_Pid">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="NO" literal="NO"/>
+    <eLiterals name="YES" value="1" literal="YES"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypedSignal" eSuperTypes="#//Signal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InitialValue" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//ValueSpecification"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TypeDefinition" ordered="false"
+        lowerBound="1" eType="#//TypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HardwareSignal" eSuperTypes="#//TypedSignal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CircuitName" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CircuitNumber" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PID" ordered="false" lowerBound="1"
+        eType="#//Te_Pid"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PidNumber" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Validity" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Literal" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Comment" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationValue" eSuperTypes="#//ValueSpecification">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Literal" ordered="false"
+        lowerBound="1" eType="#//Literal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatusSignal" eSuperTypes="#//Signal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="StatusSignal data is always initialized as UNINITIALIZED"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Signal" ordered="false"
+        lowerBound="1" eType="#//SignalsWithStatus" eOpposite="#//SignalsWithStatus/StatusSignal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InitialValue" ordered="false"
+        lowerBound="1" eType="#//EnumerationValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SignalsWithStatus" eSuperTypes="#//TypedSignal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StatusSignal" ordered="false"
+        eType="#//StatusSignal" eOpposite="#//StatusSignal/Signal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SignalAccess" eSuperTypes="#//SignalsWithStatus">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VN_AllNodes" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VN_Infotainment" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VN_Intermediate" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VN_ParkedVehicle" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ShortName" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LongName" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Classification" ordered="false"
+        lowerBound="1" eType="#//Te_Classification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PID" ordered="false" lowerBound="1"
+        eType="#//Te_Pid"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PidNumber" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BusLatency" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Mask" ordered="false" lowerBound="1"
+        eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValue" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValue" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Units" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Size" ordered="false" lowerBound="1"
+        eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SizeUnits" ordered="false"
+        lowerBound="1" eType="#//Te_SizeUnits"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Resolution" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Validity" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FeedBack" eSuperTypes="#//TypedSignal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A &lt;code>FeedBack&lt;/code> represents feedback value for a phyiscal &lt;code>HardwareOutputSignal&lt;/code>.  These signals end with &lt;code>_fbk&lt;/code>."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HardwareOutputSignal" ordered="false"
+        lowerBound="1" eType="#//HardwareOutputSignal" eOpposite="#//HardwareOutputSignal/FeedBackSignal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HardwareOutputSignal" eSuperTypes="#//HardwareSignal #//SignalsWithStatus">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A &lt;code>HardwareOutputSignal&lt;/code> represents a physical signal and their names end with &lt;code>_osg&lt;/code>.  These signals may have an associated &lt;code>FeedBack&lt;/code> signal, but are not required to."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FeedBackSignal" ordered="false"
+        eType="#//FeedBack" eOpposite="#//FeedBack/HardwareOutputSignal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Filtered" eSuperTypes="#//SignalsWithStatus">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HardwareInputSignal" ordered="false"
+        lowerBound="1" eType="#//HardwareInputSignal" eOpposite="#//HardwareInputSignal/FilteredSignal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HardwareInputSignal" eSuperTypes="#//HardwareSignal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="_isg"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FilteredSignal" ordered="false"
+        lowerBound="1" eType="#//Filtered" eOpposite="#//Filtered/HardwareInputSignal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PacketSignal" eSuperTypes="#//TypedSignal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PacketChildSignal" ordered="false"
+        upperBound="-1" eType="#//PacketChildSignal" eOpposite="#//PacketChildSignal/Signal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PacketChildSignal" eSuperTypes="#//SignalAccess">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Signal" ordered="false"
+        lowerBound="1" eType="#//PacketSignal" eOpposite="#//PacketSignal/PacketChildSignal"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Request" eSuperTypes="#//TypedSignal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenServiceRequest" eSuperTypes="#//Request #//Event">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleRequest" eSuperTypes="#//Request #//Event">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CPIDType">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="BOOLEAN" literal="BOOLEAN"/>
+    <eLiterals name="PWM" value="1" literal="PWM"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CPID" eSuperTypes="#//Signal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" ordered="false" lowerBound="1"
+        eType="#//CPIDType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DTC" eSuperTypes="#//Signal">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DTCNumber" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DTCSymptom" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Alias" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FaultClass" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Implementation" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visibility" ordered="false"
+        lowerBound="1" eType="#//Visibility"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStatic" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVirtual" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInline" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isConstant" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Return" ordered="false"
+        lowerBound="1" eType="#//TypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ArgumentDirection">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="IN" literal="IN"/>
+    <eLiterals name="OUT" value="1" literal="OUT"/>
+    <eLiterals name="INOUT" value="2" literal="INOUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Argument" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" ordered="false" lowerBound="1"
+        eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Direction" ordered="false"
+        lowerBound="1" eType="#//ArgumentDirection"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DefaultValue" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TypeDefinition" ordered="false"
+        lowerBound="1" eType="#//TypeDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexTypeDefinition" eSuperTypes="#//TypeDefinition">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayTypeDefinition" eSuperTypes="#//ComplexTypeDefinition">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AliasTypeDefinition" eSuperTypes="#//ComplexTypeDefinition">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constant" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuredTypeDefinition" eSuperTypes="#//ComplexTypeDefinition">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationTypeDefinition" eSuperTypes="#//ComplexTypeDefinition">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnionTypeDefinition" eSuperTypes="#//StructuredTypeDefinition">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructTypeDefinition" eSuperTypes="#//StructuredTypeDefinition">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LanguageTypeDefinition" eSuperTypes="#//ComplexTypeDefinition">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Declaration" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlgorithmBlockOrdered" eSuperTypes="#//Ordered">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AlgorithmBlock" ordered="false"
+        lowerBound="1" eType="#//AlgorithmBlock"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstantAttribute" eSuperTypes="#//Attribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataAttribute" eSuperTypes="#//Attribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MacroAttribute" eSuperTypes="#//Attribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Te_SecurityLevel">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="UNSECURE" literal="UNSECURE"/>
+    <eLiterals name="SECURE" value="1" literal="SECURE"/>
+    <eLiterals name="PROTECTED" value="2" literal="PROTECTED"/>
+    <eLiterals name="SECURITYCODE" value="3" literal="SECURITYCODE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MemoryRetentionTypesAttribute" eSuperTypes="#//Attribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReadSecurityLevel" ordered="false"
+        lowerBound="1" eType="#//Te_SecurityLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WriteSecurityLevel" ordered="false"
+        lowerBound="1" eType="#//Te_SecurityLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DID" ordered="false" lowerBound="1"
+        eType="#//Te_Pid"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MirroredMemoryTypesAttribute" eSuperTypes="#//MemoryRetentionTypesAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecureCumulativeAttribute" eSuperTypes="#//MirroredMemoryTypesAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecureStaticAttribute" eSuperTypes="#//MirroredMemoryTypesAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StaticAttribute" eSuperTypes="#//MemoryRetentionTypesAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Te_Boolean">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eLiterals name="FALSE" literal="FALSE"/>
+    <eLiterals name="TRUE" value="1" literal="TRUE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PreservedAttribute" eSuperTypes="#//MirroredMemoryTypesAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InitOnMemFault" ordered="false"
+        lowerBound="1" eType="#//Te_Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdaptableAttribute" eSuperTypes="#//MirroredMemoryTypesAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InitOnMemFault" ordered="false"
+        lowerBound="1" eType="#//Te_Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CumulativeAttribute" eSuperTypes="#//MirroredMemoryTypesAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InitOnMemFault" ordered="false"
+        lowerBound="1" eType="#//Te_Boolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpendableAttribute" eSuperTypes="#//MemoryRetentionTypesAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VolatileAttribute" eSuperTypes="#//MemoryRetentionTypesAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PacketType" eSuperTypes="#//DataAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OpenServiceParameter" eSuperTypes="#//DataAttribute">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BusLatency" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Classification" ordered="false"
+        lowerBound="1" eType="#//Te_Classification"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LongName" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValue" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValue" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Resolution" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Size" ordered="false" lowerBound="1"
+        eType="#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SizeUnits" ordered="false"
+        lowerBound="1" eType="#//Te_SizeUnits"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Units" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Validity" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuredValue" eSuperTypes="#//ValueSpecification">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ElementValues" ordered="false"
+        lowerBound="1" upperBound="-1" eType="#//ValueSpecification"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveValue" eSuperTypes="#//ValueSpecification">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VMacroWrapper" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerLiteral" eSuperTypes="#//PrimitiveValue">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RealLiteral" eSuperTypes="#//PrimitiveValue">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanLiteral" eSuperTypes="#//PrimitiveValue">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="#//PrimitiveValue">
+    <eAnnotations source="http://www.sodius.com/metamodels/MDWProperties">
+      <details key="logicalPackage" value="gmmm"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+        lowerBound="1" eType="#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

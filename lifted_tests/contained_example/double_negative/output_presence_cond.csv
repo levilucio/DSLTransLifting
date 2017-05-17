@@ -1,0 +1,4 @@
+(xor _H1 _D1 _D2 _F1 _F2 _H1D1 _H1D2 _D1F1 _D2F2)
+rootElement,rootElem,true
+System,HumanMachineInterface,(and (not (and _D2F2 _H1D1 _F1 _H1D2 _D1 _F2 _D1F1 _D2)) _H1)
+System,rootElement,rootElem,System,HumanMachineInterface,(and (not (and _D2F2 _H1D1 _F1 _H1D2 _D1 _F2 _D1F1 _D2)) _H1)

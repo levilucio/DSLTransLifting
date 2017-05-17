@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dsltrans:TransformationModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dsltrans="http://dsltrans/2.0">
+  <source xsi:type="dsltrans:FilePort" name="maininput" filePathURI="input.xmi">
+    <metaModelId metaModelURI="src_recreated.ecore" metaModelName="src_recreated.Src_recreated"/>
+  </source>
+  <source xsi:type="dsltrans:Sequential" name="mapRootElement" description="mapRootElement" previousSource="//@source.0" outputFilePathURI="">
+    <metaModelId metaModelURI="dst_recreated.ecore" metaModelName="dst_recreated.Dst_recreated"/>
+    <hasRule description="MappingRootElement">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" packageName="src_recreated" className="rootElement"/>
+      </match>
+      <apply>
+        <class packageName="dst_recreated" className="rootElement">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="root"/>
+          </attribute>
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:Atom" value="rootElem"/>
+          </attribute>
+        </class>
+      </apply>
+    </hasRule>
+  </source>
+  <source xsi:type="dsltrans:Sequential" name="MapBasicElements" description="MapBasicElements" previousSource="//@source.1" outputFilePathURI="output.xmi">
+    <metaModelId metaModelURI="dst_recreated.ecore" metaModelName="dst_recreated.Dst_recreated"/>
+    <hasRule description="MapVirtualDevice">
+      <match>
+        <class xsi:type="dsltrans:ExistsMatchClass" packageName="src_recreated" className="ExecFrame">
+          <attribute attributeName="Name"/>
+        </class>
+        <class xsi:type="dsltrans:AnyMatchClass" packageName="src_recreated" className="rootElement"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="ExecFrame" source="//@source.2/@hasRule.0/@match.0/@class.1" target="//@source.2/@hasRule.0/@match.0/@class.0"/>
+      </match>
+      <apply>
+        <class packageName="dst_recreated" className="System" groupName="">
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.0/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="swc2ecumap"/>
+          </attribute>
+        </class>
+        <class packageName="dst_recreated" className="rootElement">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="root"/>
+          </attribute>
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:Atom" value="rootElem"/>
+          </attribute>
+        </class>
+        <association associationName="System" source="//@source.2/@hasRule.0/@apply/@class.1" target="//@source.2/@hasRule.0/@apply/@class.0"/>
+      </apply>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.2/@hasRule.0/@apply/@class.1" sourceClass="//@source.2/@hasRule.0/@match.0/@class.1"/>
+    </hasRule>
+  </source>
+</dsltrans:TransformationModel>

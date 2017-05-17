@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII" standalone="no"?>
+<dst_recreated:rootElement xmlns:dst_recreated="http://dst_recreated" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" shortName="rootElem" xmi:version="2.0" xsi:schemaLocation="http://dst_recreated dst_recreated.ecore">
+  <System shortName="Frame1"/>
+  <System shortName="Frame2"/>
+</dst_recreated:rootElement>

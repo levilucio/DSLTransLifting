@@ -1,0 +1,8 @@
+(xor _H1 _H2 _D1 _D2 _D3 _F _H1D1 _H2D1 _H2D2 _H2D3 _D1F _D2F)
+rootElement,rootElem,true
+System,HumanMachineInterface,(and _D1F _H1 _F _H1D1 _D1)
+System,HumanMachineInterface2,(and _D1F _F _H2 _H2D1 _D1)
+System,HumanMachineInterface2,(and _D2F _F _H2 _H2D2 (not (and _D1F _H2D1 _D1)) _D2)
+System,rootElement,rootElem,System,HumanMachineInterface,(and _D1F _H1 _F _H1D1 _D1)
+System,rootElement,rootElem,System,HumanMachineInterface2,(and _D1F _F _H2 _H2D1 _D1)
+System,rootElement,rootElem,System,HumanMachineInterface2,(and _D2F _F _H2 _H2D2 (not (and _D1F _H2D1 _D1)) _D2)

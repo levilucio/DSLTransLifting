@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dsltrans:TransformationModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dsltrans="http://dsltrans/2.0">
+  <source xsi:type="dsltrans:FilePort" name="maininput" filePathURI="ip123.xmi">
+    <metaModelId metaModelURI="src_recreated.ecore" metaModelName="src_recreated.Src_recreated"/>
+  </source>
+  <source xsi:type="dsltrans:Sequential" name="mapRootElement" description="mapRootElement" previousSource="//@source.0" outputFilePathURI="">
+    <metaModelId metaModelURI="dst_recreated.ecore" metaModelName="dst_recreated.Dst_recreated"/>
+    <hasRule description="MappingRootElement">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" className="rootElement" packageName="src_recreated"/>
+      </match>
+      <apply>
+        <class className="rootElement" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="root"/>
+          </attribute>
+        </class>
+      </apply>
+    </hasRule>
+  </source>
+  <source xsi:type="dsltrans:Sequential" name="MapBasicElements" description="MapBasicElements" previousSource="//@source.1" outputFilePathURI="">
+    <metaModelId metaModelURI="dst_recreated.ecore" metaModelName="dst_recreated.Dst_recreated"/>
+    <hasRule description="MapECU2FiveElements">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" description="" className="ECU" packageName="src_recreated">
+          <attribute attributeName="Name"/>
+        </class>
+        <class xsi:type="dsltrans:AnyMatchClass" className="rootElement" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:ExistsMatchClass" className="VirtualDevice" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:ExistsMatchClass" className="Distributable" packageName="src_recreated"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="ecu" source="//@source.2/@hasRule.0/@match.0/@class.1" target="//@source.2/@hasRule.0/@match.0/@class.0"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="VirtualDevice" source="//@source.2/@hasRule.0/@match.0/@class.0" target="//@source.2/@hasRule.0/@match.0/@class.2"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="Distributable" source="//@source.2/@hasRule.0/@match.0/@class.2" target="//@source.2/@hasRule.0/@match.0/@class.3"/>
+      </match>
+      <apply>
+        <class className="System" packageName="dst_recreated">
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.0/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="sys"/>
+          </attribute>
+        </class>
+        <class className="rootElement" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="root"/>
+          </attribute>
+        </class>
+        <class className="SoftwareComposition" packageName="dst_recreated">
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.0/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+        </class>
+        <class className="CompositionType" packageName="dst_recreated">
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.0/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="composty"/>
+          </attribute>
+        </class>
+        <class className="SystemMapping" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="sysmapping"/>
+          </attribute>
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.0/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+        </class>
+        <class className="EcuInstance" packageName="dst_recreated">
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.0/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="ecuinst"/>
+          </attribute>
+        </class>
+        <association associationName="System" source="//@source.2/@hasRule.0/@apply/@class.1" target="//@source.2/@hasRule.0/@apply/@class.0"/>
+        <association associationName="softwareComposition" source="//@source.2/@hasRule.0/@apply/@class.0" target="//@source.2/@hasRule.0/@apply/@class.2"/>
+        <association associationName="softwareComposition" source="//@source.2/@hasRule.0/@apply/@class.2" target="//@source.2/@hasRule.0/@apply/@class.3"/>
+        <association associationName="mapping" source="//@source.2/@hasRule.0/@apply/@class.0" target="//@source.2/@hasRule.0/@apply/@class.4"/>
+        <association associationName="EcuInstance" source="//@source.2/@hasRule.0/@apply/@class.1" target="//@source.2/@hasRule.0/@apply/@class.5"/>
+        <association associationName="CompositionType" source="//@source.2/@hasRule.0/@apply/@class.1" target="//@source.2/@hasRule.0/@apply/@class.3"/>
+      </apply>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.2/@hasRule.0/@apply/@class.1" sourceClass="//@source.2/@hasRule.0/@match.0/@class.1"/>
+    </hasRule>
+    <hasRule description="MapVirtualDevice">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" className="VirtualDevice" packageName="src_recreated">
+          <attribute attributeName="Name"/>
+        </class>
+        <class xsi:type="dsltrans:ExistsMatchClass" className="Distributable" packageName="src_recreated"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="Distributable" source="//@source.2/@hasRule.1/@match.0/@class.0" target="//@source.2/@hasRule.1/@match.0/@class.1"/>
+      </match>
+      <apply>
+        <class className="SwcToEcuMapping" packageName="dst_recreated" groupName="">
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.1/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="swc2ecumap"/>
+          </attribute>
+        </class>
+      </apply>
+    </hasRule>
+    <hasRule description="MapDistributable">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" description="" className="Distributable" packageName="src_recreated">
+          <attribute attributeName="Name"/>
+        </class>
+      </match>
+      <apply>
+        <class className="ComponentPrototype" packageName="dst_recreated">
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.2/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="comp"/>
+          </attribute>
+        </class>
+        <class className="SwCompToEcuMapping_component" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="swc_comp"/>
+          </attribute>
+        </class>
+        <association associationName="componentPrototype" source="//@source.2/@hasRule.2/@apply/@class.1" target="//@source.2/@hasRule.2/@apply/@class.0"/>
+      </apply>
+    </hasRule>
+    <hasRule description="mapProvidedSignal">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" className="ExecFrame" packageName="src_recreated">
+          <attribute attributeName="Name"/>
+        </class>
+        <class xsi:type="dsltrans:ExistsMatchClass" className="Signal" packageName="src_recreated"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="Provided" source="//@source.2/@hasRule.3/@match.0/@class.0" target="//@source.2/@hasRule.3/@match.0/@class.1"/>
+      </match>
+      <apply>
+        <class className="PPortPrototype" packageName="dst_recreated" groupName="">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="pport"/>
+          </attribute>
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.3/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+        </class>
+      </apply>
+    </hasRule>
+    <hasRule description="mapRequiredSignal">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" className="ExecFrame" packageName="src_recreated">
+          <attribute attributeName="Name"/>
+        </class>
+        <class xsi:type="dsltrans:ExistsMatchClass" className="Signal" packageName="src_recreated"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="Required" source="//@source.2/@hasRule.4/@match.0/@class.0" target="//@source.2/@hasRule.4/@match.0/@class.1"/>
+      </match>
+      <apply>
+        <class className="RPortPrototype" packageName="dst_recreated">
+          <attribute attributeName="shortName">
+            <attributeValue xsi:type="dsltrans:AttributeRef" attributeRef="//@source.2/@hasRule.4/@match.0/@class.0/@attribute.0"/>
+          </attribute>
+          <attribute attributeName="">
+            <attributeValue xsi:type="dsltrans:Atom" value="rport"/>
+          </attribute>
+        </class>
+      </apply>
+    </hasRule>
+  </source>
+  <source xsi:type="dsltrans:Sequential" name="ConnectGeneratedEelements" description="ConnectGeneratedEelements" previousSource="//@source.2" outputFilePathURI="">
+    <metaModelId metaModelURI="dst_recreated.ecore" metaModelName="dst_recreated.Dst_recreated"/>
+    <hasRule description="ConnECU2VirtualDevice">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" className="ECU" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:AnyMatchClass" className="VirtualDevice" packageName="src_recreated"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="VirtualDevice" source="//@source.3/@hasRule.0/@match.0/@class.0" target="//@source.3/@hasRule.0/@match.0/@class.1"/>
+      </match>
+      <apply>
+        <class className="SystemMapping" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="sysmapping"/>
+          </attribute>
+        </class>
+        <class className="SwcToEcuMapping" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="swc2ecumap"/>
+          </attribute>
+        </class>
+        <class className="EcuInstance" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="ecuinst"/>
+          </attribute>
+        </class>
+        <association associationName="swMapping" source="//@source.3/@hasRule.0/@apply/@class.0" target="//@source.3/@hasRule.0/@apply/@class.1"/>
+        <association associationName="ecuInstance" source="//@source.3/@hasRule.0/@apply/@class.1" target="//@source.3/@hasRule.0/@apply/@class.2"/>
+      </apply>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.3/@hasRule.0/@apply/@class.0" sourceClass="//@source.3/@hasRule.0/@match.0/@class.0"/>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.3/@hasRule.0/@apply/@class.1" sourceClass="//@source.3/@hasRule.0/@match.0/@class.1"/>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.3/@hasRule.0/@apply/@class.2" sourceClass="//@source.3/@hasRule.0/@match.0/@class.0"/>
+    </hasRule>
+    <hasRule description="ConnVirtualDevice2Distributable">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" className="VirtualDevice" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:AnyMatchClass" className="Distributable" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:AnyMatchClass" className="ECU" packageName="src_recreated"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="VirtualDevice" source="//@source.3/@hasRule.1/@match.0/@class.2" target="//@source.3/@hasRule.1/@match.0/@class.0"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="Distributable" source="//@source.3/@hasRule.1/@match.0/@class.0" target="//@source.3/@hasRule.1/@match.0/@class.1"/>
+      </match>
+      <apply>
+        <class className="CompositionType" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="composty"/>
+          </attribute>
+        </class>
+        <class className="SwcToEcuMapping" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="swc2ecumap"/>
+          </attribute>
+        </class>
+        <class className="ComponentPrototype" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="comp"/>
+          </attribute>
+        </class>
+        <class className="SwCompToEcuMapping_component" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="swc_comp"/>
+          </attribute>
+        </class>
+        <association associationName="component" source="//@source.3/@hasRule.1/@apply/@class.0" target="//@source.3/@hasRule.1/@apply/@class.2"/>
+        <association associationName="component" source="//@source.3/@hasRule.1/@apply/@class.1" target="//@source.3/@hasRule.1/@apply/@class.3"/>
+        <association associationName="type" source="//@source.3/@hasRule.1/@apply/@class.2" target="//@source.3/@hasRule.1/@apply/@class.0"/>
+      </apply>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.3/@hasRule.1/@apply/@class.0" sourceClass="//@source.3/@hasRule.1/@match.0/@class.2"/>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.3/@hasRule.1/@apply/@class.1" sourceClass="//@source.3/@hasRule.1/@match.0/@class.0"/>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.3/@hasRule.1/@apply/@class.2" sourceClass="//@source.3/@hasRule.1/@match.0/@class.1"/>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.3/@hasRule.1/@apply/@class.3" sourceClass="//@source.3/@hasRule.1/@match.0/@class.1"/>
+    </hasRule>
+  </source>
+  <source xsi:type="dsltrans:Sequential" name="ConnectPorts" description="ConnectPorts" previousSource="//@source.3" outputFilePathURI="op123.xmi">
+    <metaModelId metaModelURI="dst_recreated.ecore" metaModelName="dst_recreated.Dst_recreated"/>
+    <hasRule description="ConnectPPortPrototype">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" className="ECU" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:AnyMatchClass" className="VirtualDevice" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:AnyMatchClass" className="Distributable" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:AnyMatchClass" className="ExecFrame" packageName="src_recreated"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="VirtualDevice" source="//@source.4/@hasRule.0/@match.0/@class.0" target="//@source.4/@hasRule.0/@match.0/@class.1"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="Distributable" source="//@source.4/@hasRule.0/@match.0/@class.1" target="//@source.4/@hasRule.0/@match.0/@class.2"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="ExecFrame" source="//@source.4/@hasRule.0/@match.0/@class.2" target="//@source.4/@hasRule.0/@match.0/@class.3"/>
+      </match>
+      <apply>
+        <class className="CompositionType" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="composty"/>
+          </attribute>
+        </class>
+        <class className="PPortPrototype" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="pport"/>
+          </attribute>
+        </class>
+        <association associationName="port" source="//@source.4/@hasRule.0/@apply/@class.0" target="//@source.4/@hasRule.0/@apply/@class.1"/>
+      </apply>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.4/@hasRule.0/@apply/@class.0" sourceClass="//@source.4/@hasRule.0/@match.0/@class.0"/>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.4/@hasRule.0/@apply/@class.1" sourceClass="//@source.4/@hasRule.0/@match.0/@class.3"/>
+    </hasRule>
+    <hasRule description="ConnectRPortPrototype">
+      <match>
+        <class xsi:type="dsltrans:AnyMatchClass" className="ECU" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:AnyMatchClass" className="VirtualDevice" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:AnyMatchClass" className="Distributable" packageName="src_recreated"/>
+        <class xsi:type="dsltrans:AnyMatchClass" className="ExecFrame" packageName="src_recreated"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="VirtualDevice" source="//@source.4/@hasRule.1/@match.0/@class.0" target="//@source.4/@hasRule.1/@match.0/@class.1"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="Distributable" source="//@source.4/@hasRule.1/@match.0/@class.1" target="//@source.4/@hasRule.1/@match.0/@class.2"/>
+        <association xsi:type="dsltrans:PositiveMatchAssociation" associationName="ExecFrame" source="//@source.4/@hasRule.1/@match.0/@class.2" target="//@source.4/@hasRule.1/@match.0/@class.3"/>
+      </match>
+      <apply>
+        <class className="CompositionType" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="composty"/>
+          </attribute>
+        </class>
+        <class className="RPortPrototype" packageName="dst_recreated">
+          <attribute>
+            <attributeValue xsi:type="dsltrans:Atom" value="rport"/>
+          </attribute>
+        </class>
+        <association associationName="port" source="//@source.4/@hasRule.1/@apply/@class.0" target="//@source.4/@hasRule.1/@apply/@class.1"/>
+      </apply>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.4/@hasRule.1/@apply/@class.0" sourceClass="//@source.4/@hasRule.1/@match.0/@class.0"/>
+      <backwards xsi:type="dsltrans:PositiveBackwardRestriction" targetClass="//@source.4/@hasRule.1/@apply/@class.1" sourceClass="//@source.4/@hasRule.1/@match.0/@class.3"/>
+    </hasRule>
+  </source>
+</dsltrans:TransformationModel>

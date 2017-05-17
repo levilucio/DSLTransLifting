@@ -1,0 +1,10 @@
+(xor _H1 _D1 _D2 _F1 _F2 _H1D1 _H1D2 _D1F1 _D2F2)
+VirtualDevice;HumanMachineInterface;_H1
+Distributable;Display1;_D1
+Distributable;Display2;_D2
+ExecFrame;Frame1;_F1
+ExecFrame;Frame2;_F2
+Distributable;VirtualDevice;HumanMachineInterface;Distributable;Display1;_H1D1
+Distributable;VirtualDevice;HumanMachineInterface;Distributable;Display2;_H1D2
+ExecFrame;Distributable;Display1;ExecFrame;Frame1;_D1F1
+ExecFrame;Distributable;Display2;ExecFrame;Frame2;_D2F2

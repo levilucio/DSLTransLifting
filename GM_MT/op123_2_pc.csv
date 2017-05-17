@@ -1,0 +1,4 @@
+(xor (xor _F2 _F3) _F8)
+rootElement;rootElem;true
+EcuInstance;BodyControl;(and (or _F1 _F2))
+EcuInstance,rootElement,rootElem,EcuInstance,(and (or _F1 _F2))

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<src_recreated:rootElement
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:src_recreated="http://src_recreated"
+    xsi:schemaLocation="http://src_recreated src_recreated.ecore">
+  <ExecFrame
+      Name="Frame1"/>
+  <ExecFrame
+      Name="Frame2"/>
+  <VirtualDevice
+      Name="HumanMachineInterface"
+      Distributable="//@Distributable.0"/>
+  <VirtualDevice
+      Name="HumanMachineInterface2"
+      Distributable="//@Distributable.0 //@Distributable.1 //@Distributable.2"/>
+  <Distributable
+      ExecFrame="//@ExecFrame.0"
+      Name="Display1"/>
+  <Distributable
+      ExecFrame="//@ExecFrame.0"
+      Name="Display2"/>
+  <Distributable
+      Name="Display3"/>
+</src_recreated:rootElement>

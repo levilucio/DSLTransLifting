@@ -1,0 +1,10 @@
+(xor _H1 _H2 _D1 _D2 _H1D1 _H1D2 _H2D1 _H2D2)
+rootElement,rootElem,true
+System,Display1,(and _H1 _H1D1 _H2 _H2D1 _D1)
+System,Display2,(and (not (and _H1 _H1D1 _H2 _H2D1 _D1)) _H1 _H2 _H1D2 _H2D2 _D2)
+System,Display1,(and _H1 _H1D1 _H2 _H2D1 _D1)
+System,Display2,(and (not (and _H1 _H1D1 _H2 _H2D1 _D1)) _H1 _H2 _H1D2 _H2D2 _D2)
+System,rootElement,rootElem,System,Display1,(and _H1 _H1D1 _H2 _H2D1 _D1)
+System,rootElement,rootElem,System,Display2,(and (not (and _H1 _H1D1 _H2 _H2D1 _D1)) _H1 _H2 _H1D2 _H2D2 _D2)
+System,rootElement,rootElem,System,Display1,(and _H1 _H1D1 _H2 _H2D1 _D1)
+System,rootElement,rootElem,System,Display2,(and (not (and _H1 _H1D1 _H2 _H2D1 _D1)) _H1 _H2 _H1D2 _H2D2 _D2)
